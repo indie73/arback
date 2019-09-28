@@ -99,3 +99,11 @@ aglio -s -i doc.apib
 ```
 aglio -i doc.apib -o public/doc.html
 ```
+
+## Поддержка
+
+Для упрощения поддержки API используется `fitting`
+Команда проверки корретности реализации роутов
+```
+bundle e rake fitting:documentation_responses[xs]
+```
