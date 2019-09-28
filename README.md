@@ -54,7 +54,30 @@ cap production deploy:initial
 cap production deploy
 ```
 
-6. Настроить nginx файл в соответствии с требованиями на предприятии и перезагрузить его командой
+6. Настроить nginx файл в соответствии с требованиями на предприятии (например вариантом ниже) и перезагрузить nginx
+
+```
+upstream arback_app {
+    server unix:///home/username/apps/arback/shared/tmp/sockets/arback-puma.sock;
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        
+        server_name indieteam.online;
+        
+        location /api/v1 { 
+                proxy_pass http://arback_app;
+        }
+        
+        location / { 
+                root /home/dmitry/apps/arback/current/public;
+                try_files $uri $uri/ /index.html;
+        }
+}
+```
+
 ```
 sudo service nginx restart
 ```
