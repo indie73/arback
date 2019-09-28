@@ -160,3 +160,50 @@ FORMAT: 1A
                 + status (enum, required)
                     + ok
                     + error
+
+## Детали [/api/v1/details]
+
+### Загрузить деталь [POST /api/v1/details]
+
+### Получить детали [GET /api/v1/details]
+
+### Получить деталь [GET /api/v1/details/{id}]
+
+### Изменить деталь [PUT /api/v1/details/{id}]
+
+### Удалить деталь [PUT /api/v1/details/{id}]
+
+## Шаги
+
+### Загрузить шаг [POST /api/v1/steps]
+
+### Получить шаги [GET /api/v1/steps]
+
+### Получить шаг [GET /api/v1/steps/{id}]
+
+### Изменить шаг [PUT /api/v1/steps/{id}]
+
+### Удалить шаг [PUT /api/v1/steps/{id}]
+
+## Инструкции
+
+### Загрузить инструкции [POST /api/v1/instructions]
+
+### Получить инструкции [GET /api/v1/instructions]
+
+### Получить инструкцию [GET /api/v1/instructions/{id}]
+
++ Parameters
+    + id: `1` (string, required) - id инструкции
+
++ Response 200 (application/json)
+    + Attributes
+        + status (enum, required)
+            + ok
+        + details (array[number], required, fixed-type) - массив идентификаторов деталей
+        + steps (array[number], required, fixed-type) - массив идентификаторов шагов
+
+### Изменить инструкцию [PUT /api/v1/instructions/{id}]
+
+### Удалить инструкцию  [PUT /api/v1/instructions/{id}]
+
