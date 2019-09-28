@@ -35,9 +35,7 @@ RSpec.describe API::V1::StepsController, type: :controller do
       expect(response.body).to eq(
         MultiJson.dump(
           "status": "ok",
-          "username": "Иванов Иван Иванович",
-          "correctly": true,
-          "description": "Все ок"
+          "description": "Взять деталь A"
         )
       )
     end

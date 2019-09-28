@@ -10,7 +10,7 @@ module API
       end
 
       def show
-        render status: :ok, json: {status: :ok, username: "Иванов Иван Иванович", correctly: true, description: "Все ок"}
+        render status: :ok, json: {status: :ok, description: "Взять деталь A"}
       end
     end
   end

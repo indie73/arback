@@ -36,9 +36,9 @@ RSpec.describe API::V1::DetailsController, type: :controller do
       expect(response.body).to eq(
         MultiJson.dump(
           "status": "ok",
-          "username": "Иванов Иван Иванович",
-          "correctly": true,
-          "description": "Все ок"
+          "count": 1,
+          "name": "Пластиковая палка с крючком",
+          "shortName": "D"
         )
       )
     end
