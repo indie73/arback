@@ -1,5 +1,17 @@
 FORMAT: 1A
 
+# Data Structures
+
+## Detail (object)
++ id (number, required)
++ count (number, required)
++ name (string, required)
++ shortName (string, required)
+
+## Step (object)
++ id (number, required)
++ description (string, required)
+
 # arback
 
 ## Файл [/api/v1/file]
@@ -220,8 +232,8 @@ FORMAT: 1A
     + Attributes
         + status (enum, required)
             + ok
-        + details (array[number], required, fixed-type) - массив идентификаторов деталей
-        + steps (array[number], required, fixed-type) - массив идентификаторов шагов
+        + details (array[Detail], required, fixed-type) - массив деталей
+        + steps (array[Step], required, fixed-type) - массив шагов
 
 ### Изменить инструкцию [PUT /api/v1/instructions/{id}]
 

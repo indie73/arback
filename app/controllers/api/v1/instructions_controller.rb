@@ -10,7 +10,7 @@ module API
       end
 
       def show
-        render status: :ok, json: {status: :ok, details: [1, 2, 3, 4], steps: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
+        render status: :ok, json: {status: :ok, details: [{id: 1, count: 2, name: "Пластиковая палка с крючком", shortName: "D"}, {id: 2, count: 2, name: "Железная палка с крючком", shortName: "D"}], steps: [{id: 1, description: "Взять деталь A"}, {id: 2, description: "Взять деталь B"}]}
       end
     end
   end
