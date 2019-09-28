@@ -169,6 +169,17 @@ FORMAT: 1A
 
 ### Получить деталь [GET /api/v1/details/{id}]
 
++ Parameters
+    + id: `1` (string, required) - id детали
+
++ Response 200 (application/json)
+    + Attributes
+        + status (enum, required)
+            + ok
+        + count (number, required)
+        + name (string, required)
+        + shortName (string, required)
+
 ### Изменить деталь [PUT /api/v1/details/{id}]
 
 ### Удалить деталь [PUT /api/v1/details/{id}]
@@ -180,6 +191,15 @@ FORMAT: 1A
 ### Получить шаги [GET /api/v1/steps]
 
 ### Получить шаг [GET /api/v1/steps/{id}]
+
++ Parameters
+    + id: `1` (string, required) - id шага
+
++ Response 200 (application/json)
+    + Attributes
+        + status (enum, required)
+            + ok
+        + description (string, required)
 
 ### Изменить шаг [PUT /api/v1/steps/{id}]
 
