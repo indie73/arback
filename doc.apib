@@ -1,0 +1,57 @@
+FORMAT: 1A
+
+# arback
+
+## Файл [/api/v1/file]
+
+### Загрузить файл [POST /api/v1/files]
+
++ Request (multipart/form-data;boundary=BOUNDARY)
+    + Body
+
+            --BOUNDARY
+
+            Content-Disposition: form-data; filename="$filename"
+            Content-Type: $mimetype
+            Content-Transfer-Encoding: binary
+
+            $binarydata
+            --BOUNDARY--
+
++ Response 200 (application/json)
+    + Attributes
+        + One Of
+            + Properties
+                + status (enum, required)
+                    + ok - файл загружен успешно
+                + id: 1 (number, required)
+            + Properties
+                + status (enum, required)
+                    + fileIncorrect - ошибка загрузки файла
+
+### Получить список файлов [GET /api/v1/files]
+
++ Response 200 (application/json)
+    + Attributes
+        + One Of
+            + Properties
+                + status (enum, required)
+                    + ok
+                + files (array[number], required, fixed-type) - массив идентификаторов файлов
+
+### Получить файл [GET /api/v1/files/{id}]
+
++ Parameters
+    + id: `1` (string, required) - id файла
+
++ Response 302
+  Успешный редирект на скачивание файла
+  + Attributes
+
+## События [/api/v1/events]
+
+### Создать события [POST /api/v1/events]
+
+### Получить список событий [GET /api/v1/events]
+
+### Получить событие [GET /api/v1/events/{id}]
