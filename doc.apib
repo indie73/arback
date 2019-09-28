@@ -4,71 +4,25 @@ FORMAT: 1A
 
 ## Instruction
 + id (number, required)
-+ name (string, required)
++ name: `Инструкция по сбору X баннера (string, required)
 
 ## Detail (object)
 + id (number, required)
-+ count (number, required)
-+ name (string, required)
-+ shortName (string, required)
++ count: 2 (number, required)
++ name: Пластиковая ножка с держателем ролла (string, required)
++ shortName: A (string, required)
 
 ## Step (object)
 + id (number, required)
-+ description (string, required)
++ description: Взять деталь A (string, required)
 
 ## ControlPoints
 + id (number, required)
-+ username (string, required)
-+ time (number, required)
-+ instructionId (number, required)
++ username: i.ivanov (string, required)
++ time: 1234567890 (number, required)
++ instructionId: 1 (number, required)
 
-# arback
-
-## Файл [/api/v1/file]
-
-### Загрузить файл [POST /api/v1/files]
-
-+ Request (multipart/form-data;boundary=BOUNDARY)
-    + Body
-
-            --BOUNDARY
-
-            Content-Disposition: form-data; filename="$filename"
-            Content-Type: $mimetype
-            Content-Transfer-Encoding: binary
-
-            $binarydata
-            --BOUNDARY--
-
-+ Response 200 (application/json)
-    + Attributes
-        + One Of
-            + Properties
-                + status (enum, required)
-                    + ok - файл загружен успешно
-                + id: 1 (number, required)
-            + Properties
-                + status (enum, required)
-                    + fileIncorrect - ошибка загрузки файла
-
-### Получить список файлов [GET /api/v1/files]
-
-+ Response 200 (application/json)
-    + Attributes
-        + One Of
-            + Properties
-                + status (enum, required)
-                    + ok
-                + files (array[number], required, fixed-type) - массив идентификаторов файлов
-
-### Получить файл [GET /api/v1/files/{id}]
-
-+ Parameters
-    + id: `1` (string, required) - id файла
-
-+ Response 302
-  Успешный редирект на скачивание файла
-  + Attributes
+# ARIS
 
 ## Инструкции [/api/v1/instructions]
 
@@ -76,21 +30,17 @@ FORMAT: 1A
 
 + Response 200 (application/json)
     + Attributes
-        + status (enum, required)
-            + ok
-        + instructions (array[Instruction], required, fixed-type) - массив инструкцей
+        + instructions (array[Instruction], required, fixed-type)
 
 ### Получить инструкцию [GET /api/v1/instructions/{id}]
 
 + Parameters
-    + id: `1` (string, required) - id инструкции
+    + id: `1` (string, required)
 
 + Response 200 (application/json)
     + Attributes
-        + status (enum, required)
-            + ok
-        + details (array[Detail], required, fixed-type) - массив деталей
-        + steps (array[Step], required, fixed-type) - массив шагов
+        + details (array[Detail], required, fixed-type)
+        + steps (array[Step], required, fixed-type)
 
 ## Контрольные точки [/control_points]
 
@@ -98,7 +48,4 @@ FORMAT: 1A
 
 + Response 200 (application/json)
     + Attributes
-        + status (enum, required)
-            + ok
-        + control_points (array[ControlPoints], required, fixed-type) - массив контрольных точек
-
+        + control_points (array[ControlPoints], required, fixed-type)
