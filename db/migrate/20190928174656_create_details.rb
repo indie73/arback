@@ -3,6 +3,7 @@ class CreateDetails < ActiveRecord::Migration[5.2]
     create_table :details do |t|
       t.string :name, null: false
       t.string :short_name, null: false
+      t.string :link, null: false
       t.timestamps
     end
   end
