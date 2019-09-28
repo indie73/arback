@@ -73,7 +73,7 @@ FORMAT: 1A
             + Properties
                 + status (enum, required)
                     + ok
-                + files (array[number], required, fixed-type) - массив идентификаторов событий
+                + events (array[number], required, fixed-type) - массив идентификаторов событий
 
 ### Получить событие [GET /api/v1/events/{id}]
 
@@ -82,6 +82,8 @@ FORMAT: 1A
 
 + Response 200 (application/json)
     + Attributes
+        + status (enum, required)
+            + ok
         + username (string, required)
         + correctly (boolean, required)
         + description (string, required)
