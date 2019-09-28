@@ -8,13 +8,13 @@ end
 #
 # Table name: steps
 #
-#  id              :integer          not null, primary key
-#  description     :string           not null
-#  instructions_id :integer          not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id             :integer          not null, primary key
+#  description    :string           not null
+#  instruction_id :integer          not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 # Indexes
 #
-#  index_steps_on_instructions_id  (instructions_id)
+#  index_steps_on_instruction_id  (instruction_id)
 #

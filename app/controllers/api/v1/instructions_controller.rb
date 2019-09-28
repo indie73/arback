@@ -15,33 +15,25 @@ module API
       end
 
       def show
+        instruction = Instruction.find(params[:id])
+        steps = instruction.steps.map do |step|
+          {
+            id: step.id,
+            description: step.description
+          }
+        end
+        details = instruction.kits.map do |kit|
+          {
+            id: kit.detail.id,
+            count: kit.quantity,
+            name: kit.detail.name,
+            shortName: kit.detail.short_name
+          }
+        end
         render status: :ok, json: {
           status: :ok,
-          details: [
-            {
-              id: 1,
-              count: 2,
-              name: "Пластиковая палка с крючком",
-              shortName: "D"
-            },
-            {
-              id: 2,
-              count: 2,
-              name: "Железная палка с крючком",
-              shortName: "D"
-            }
-          ],
-          steps:
-            [
-              {
-                id: 1,
-                description: "Взять деталь A"
-              },
-              {
-                id: 2,
-                description: "Взять деталь B"
-              }
-            ]
+          details: details,
+          steps: steps
         }
       end
     end

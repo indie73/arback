@@ -1,4 +1,6 @@
 class Instruction < ApplicationRecord
+  has_many :steps
+  has_many :kits
 end
 
 # == Schema Information

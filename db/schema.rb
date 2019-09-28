@@ -38,25 +38,25 @@ ActiveRecord::Schema.define(version: 2019_09_28_200758) do
   end
 
   create_table "kits", force: :cascade do |t|
-    t.bigint "instructions_id", null: false
-    t.bigint "details_id", null: false
+    t.bigint "instruction_id", null: false
+    t.bigint "detail_id", null: false
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["details_id"], name: "index_kits_on_details_id"
-    t.index ["instructions_id"], name: "index_kits_on_instructions_id"
+    t.index ["detail_id"], name: "index_kits_on_detail_id"
+    t.index ["instruction_id"], name: "index_kits_on_instruction_id"
   end
 
   create_table "steps", force: :cascade do |t|
     t.string "description", null: false
-    t.bigint "instructions_id", null: false
+    t.bigint "instruction_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["instructions_id"], name: "index_steps_on_instructions_id"
+    t.index ["instruction_id"], name: "index_steps_on_instruction_id"
   end
 
   add_foreign_key "control_points", "instructions", on_delete: :cascade
-  add_foreign_key "kits", "details", column: "details_id", on_delete: :cascade
-  add_foreign_key "kits", "instructions", column: "instructions_id", on_delete: :cascade
-  add_foreign_key "steps", "instructions", column: "instructions_id", on_delete: :cascade
+  add_foreign_key "kits", "details", on_delete: :cascade
+  add_foreign_key "kits", "instructions", on_delete: :cascade
+  add_foreign_key "steps", "instructions", on_delete: :cascade
 end

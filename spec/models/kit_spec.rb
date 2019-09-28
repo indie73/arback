@@ -8,15 +8,15 @@ end
 #
 # Table name: kits
 #
-#  id              :integer          not null, primary key
-#  instructions_id :integer          not null
-#  details_id      :integer          not null
-#  quantity        :integer          not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id             :integer          not null, primary key
+#  instruction_id :integer          not null
+#  detail_id      :integer          not null
+#  quantity       :integer          not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 # Indexes
 #
-#  index_kits_on_details_id       (details_id)
-#  index_kits_on_instructions_id  (instructions_id)
+#  index_kits_on_detail_id       (detail_id)
+#  index_kits_on_instruction_id  (instruction_id)
 #
