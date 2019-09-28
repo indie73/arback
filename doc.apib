@@ -69,46 +69,6 @@ FORMAT: 1A
   Успешный редирект на скачивание файла
   + Attributes
 
-## События [/api/v1/events]
-
-### Создать события [POST /api/v1/events]
-
-+ Request (application/json)
-    + Attributes
-        + username (string, required)
-        + correctly (boolean, required)
-        + description (string, required)
-
-+ Response 200 (application/json)
-    + Attributes
-        + One Of
-            + Properties
-                + status (enum, required)
-                    + ok
-
-### Получить список событий [GET /api/v1/events]
-
-+ Response 200 (application/json)
-    + Attributes
-        + One Of
-            + Properties
-                + status (enum, required)
-                    + ok
-                + events (array[number], required, fixed-type) - массив идентификаторов событий
-
-### Получить событие [GET /api/v1/events/{id}]
-
-+ Parameters
-    + id: `1` (string, required) - id события
-
-+ Response 200 (application/json)
-    + Attributes
-        + status (enum, required)
-            + ok
-        + username (string, required)
-        + correctly (boolean, required)
-        + description (string, required)
-
 ## Инструкции [/api/v1/instructions]
 
 ### Получить инструкции [GET /api/v1/instructions]
@@ -139,5 +99,5 @@ FORMAT: 1A
     + Attributes
         + status (enum, required)
             + ok
-        + instructions (array[ControlPoints], required, fixed-type) - массив инструкцей
+        + control_points (array[ControlPoints], required, fixed-type) - массив контрольных точек
 
