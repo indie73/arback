@@ -80,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: arback_production
-  username: arback
-  password: <%= ENV['ARBACK_DATABASE_PASSWORD'] %>
+  host: Rails.application.credentials.aws[:host]
+  port: Rails.application.credentials.aws[:port]
+  database: Rails.application.credentials.aws[:database]
+  username: Rails.application.credentials.aws[:username]
+  password: Rails.application.credentials.aws[:password]
