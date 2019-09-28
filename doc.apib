@@ -2,6 +2,10 @@ FORMAT: 1A
 
 # Data Structures
 
+## Instruction
++ id (number, required)
++ name (string, required)
+
 ## Detail (object)
 + id (number, required)
 + count (number, required)
@@ -100,128 +104,15 @@ FORMAT: 1A
         + correctly (boolean, required)
         + description (string, required)
 
-## Цеха [/api/v1/workshops]
-
-### Создать цех [POST /api/v1/workshops]
-
-+ Request (application/json)
-    + Attributes
-        + name (string, required)
-        + description (string, required)
-        + plots (array[number], required, fixed-type) - массив идентификаторов участков
-
-+ Response 200 (application/json)
-    + Attributes
-        + One Of
-            + Properties
-                + status (enum, required)
-                    + ok
-                    + error
-
-### Получить список цехов [GET /api/v1/workshops]
-
-+ Response 200 (application/json)
-    + Attributes
-        + One Of
-            + Properties
-                + status (enum, required)
-                    + ok
-                + workshops (array[number], required, fixed-type) - массив идентификаторов цехов
-
-### Получить информацию о цехе [GET /api/v1/workshops/{id}]
-
-+ Parameters
-    + id: `1` (string, required) - id цеха
-
-+ Response 200 (application/json)
-    + Attributes
-        + status (enum, required)
-            + ok
-        + name (string, required)
-        + description (string, required)
-        + plots (array[number], required, fixed-type) - массив идентификаторов участков
-
-### Изменить цех [PUT /api/v1/workshops/{id}]
-
-+ Parameters
-    + id: `1` (string, required) - id цеха
-
-+ Request (application/json)
-    + Attributes
-        + name (string, required)
-        + description (string, required)
-        + plots (array[number], required, fixed-type) - массив идентификаторов участков
-
-+ Response 200 (application/json)
-    + Attributes
-        + One Of
-            + Properties
-                + status (enum, required)
-                    + ok
-                    + error
-
-### Удалить цех [PUT /api/v1/workshops/{id}]
-
-+ Parameters
-    + id: `1` (string, required) - id цеха
-
-+ Response 200 (application/json)
-    + Attributes
-        + One Of
-            + Properties
-                + status (enum, required)
-                    + ok
-                    + error
-
-## Детали [/api/v1/details]
-
-### Загрузить деталь [POST /api/v1/details]
-
-### Получить детали [GET /api/v1/details]
-
-### Получить деталь [GET /api/v1/details/{id}]
-
-+ Parameters
-    + id: `1` (string, required) - id детали
-
-+ Response 200 (application/json)
-    + Attributes
-        + status (enum, required)
-            + ok
-        + count (number, required)
-        + name (string, required)
-        + shortName (string, required)
-
-### Изменить деталь [PUT /api/v1/details/{id}]
-
-### Удалить деталь [PUT /api/v1/details/{id}]
-
-## Шаги [/api/v1/steps]
-
-### Загрузить шаг [POST /api/v1/steps]
-
-### Получить шаги [GET /api/v1/steps]
-
-### Получить шаг [GET /api/v1/steps/{id}]
-
-+ Parameters
-    + id: `1` (string, required) - id шага
-
-+ Response 200 (application/json)
-    + Attributes
-        + status (enum, required)
-            + ok
-        + description (string, required)
-
-### Изменить шаг [PUT /api/v1/steps/{id}]
-
-### Удалить шаг [PUT /api/v1/steps/{id}]
-
 ## Инструкции [/api/v1/instructions]
 
-### Загрузить инструкции [POST /api/v1/instructions]
-
 ### Получить инструкции [GET /api/v1/instructions]
+
++ Response 200 (application/json)
+    + Attributes
+        + status (enum, required)
+            + ok
+        + instructions (array[Instruction], required, fixed-type) - массив инструкцей
 
 ### Получить инструкцию [GET /api/v1/instructions/{id}]
 
@@ -234,8 +125,4 @@ FORMAT: 1A
             + ok
         + details (array[Detail], required, fixed-type) - массив деталей
         + steps (array[Step], required, fixed-type) - массив шагов
-
-### Изменить инструкцию [PUT /api/v1/instructions/{id}]
-
-### Удалить инструкцию  [PUT /api/v1/instructions/{id}]
 

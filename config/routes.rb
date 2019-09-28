@@ -4,9 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :files, only: %i[create index show]
       resources :events, only: %i[create index show]
-      resources :instructions, only: %i[create index show]
-      resources :details, only: %i[create index show]
-      resources :steps, only: %i[create index show]
+      resources :instructions, only: %i[index show]
     end
   end
 end
