@@ -2,16 +2,12 @@ module API
   module V1
     class ControlPointsController < BaseController
       def index
+        control_points = ControlPoint.all.map do |control_point|
+          control_point.to_json
+        end
         render status: :ok, json: {
           status: :ok,
-          control_points: [
-            {
-              id: 1,
-              username: "Проверка X баннера с эталонной моделью",
-              time: 123123123,
-              instructionId: 1
-            }
-          ]
+          control_points: control_points
         }
       end
     end
