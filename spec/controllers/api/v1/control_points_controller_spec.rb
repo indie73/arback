@@ -7,7 +7,7 @@ RSpec.describe API::V1::ControlPointsController, type: :controller do
     let!(:instruction) { Instruction.create!(name: 'Инструкция по сбору X баннера') }
     let!(:control_point) do
       ControlPoint.create!(
-        username: 'Проверка X баннера с эталонной моделью',
+        username: 'i.ivanov',
         instruction: instruction
       )
     end
