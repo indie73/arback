@@ -14,7 +14,8 @@ RSpec.describe API::V1::ControlPointsController, type: :controller do
             {
               "id": 1,
               "username": "Проверка X баннера с эталонной моделью",
-              "time": 123123123
+              "time": 123123123,
+              "instructionId": 1
             }
           ]
         )

@@ -201,7 +201,8 @@ $binarydata
     {
       "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
       "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
-      "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+      "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">instructionId</span>": <span class="hljs-value"><span class="hljs-number">1</span>
     </span>}
   ]
 </span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
@@ -227,12 +228,16 @@ $binarydata
           </span>}</span>,
           "<span class="hljs-attribute">time</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">instructionId</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span>
           </span>}
         </span>}</span>,
         "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
           <span class="hljs-string">"id"</span>,
           <span class="hljs-string">"username"</span>,
-          <span class="hljs-string">"time"</span>
+          <span class="hljs-string">"time"</span>,
+          <span class="hljs-string">"instructionId"</span>
         ]
       </span>}</span>,
       "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"массив контрольных точек"</span>
