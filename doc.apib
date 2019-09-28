@@ -87,3 +87,76 @@ FORMAT: 1A
         + username (string, required)
         + correctly (boolean, required)
         + description (string, required)
+
+## Цеха [/api/v1/workshops]
+
+### Создать цех [POST /api/v1/workshops]
+
++ Request (application/json)
+    + Attributes
+        + name (string, required)
+        + description (string, required)
+        + plots (array[number], required, fixed-type) - массив идентификаторов участков
+
++ Response 200 (application/json)
+    + Attributes
+        + One Of
+            + Properties
+                + status (enum, required)
+                    + ok
+                    + error
+
+### Получить список цехов [GET /api/v1/workshops]
+
++ Response 200 (application/json)
+    + Attributes
+        + One Of
+            + Properties
+                + status (enum, required)
+                    + ok
+                + workshops (array[number], required, fixed-type) - массив идентификаторов цехов
+
+### Получить информацию о цехе [GET /api/v1/workshops/{id}]
+
++ Parameters
+    + id: `1` (string, required) - id цеха
+
++ Response 200 (application/json)
+    + Attributes
+        + status (enum, required)
+            + ok
+        + name (string, required)
+        + description (string, required)
+        + plots (array[number], required, fixed-type) - массив идентификаторов участков
+
+### Изменить цех [PUT /api/v1/workshops/{id}]
+
++ Parameters
+    + id: `1` (string, required) - id цеха
+
++ Request (application/json)
+    + Attributes
+        + name (string, required)
+        + description (string, required)
+        + plots (array[number], required, fixed-type) - массив идентификаторов участков
+
++ Response 200 (application/json)
+    + Attributes
+        + One Of
+            + Properties
+                + status (enum, required)
+                    + ok
+                    + error
+
+### Удалить цех [PUT /api/v1/workshops/{id}]
+
++ Parameters
+    + id: `1` (string, required) - id цеха
+
++ Response 200 (application/json)
+    + Attributes
+        + One Of
+            + Properties
+                + status (enum, required)
+                    + ok
+                    + error
