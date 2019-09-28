@@ -2,14 +2,15 @@ module API
   module V1
     class InstructionsController < BaseController
       def index
+        instructions = Instruction.all.map do |instruction|
+          {
+            id: instruction.id,
+            name: instruction.name
+          }
+        end
         render status: :ok, json: {
           status: :ok,
-          instructions: [
-            {
-              id: 1,
-              name: "Сборка X баннера"
-            }
-          ]
+          instructions: instructions
         }
       end
 

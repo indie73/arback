@@ -4,6 +4,8 @@ require 'rails_helper'
 
 RSpec.describe API::V1::InstructionsController, type: :controller do
   context 'GET /api/v1/instructions' do
+    let!(:instruction) { Instruction.create!(name: 'Сборка X баннера') }
+
     it do
       get :index, params: {}, as: :json
       expect(response.status).to eq(200)
@@ -12,8 +14,8 @@ RSpec.describe API::V1::InstructionsController, type: :controller do
           "status": "ok",
           "instructions": [
             {
-              "id": 1,
-              "name": "Сборка X баннера"
+              "id": instruction.id,
+              "name": instruction.name
             }
           ]
         )
