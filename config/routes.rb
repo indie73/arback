@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :files, only: %i[create index show]
       resources :events, only: %i[create index show]
       resources :instructions, only: %i[index show]
+      resources :control_points, only: %i[index]
     end
   end
 end
