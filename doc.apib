@@ -52,6 +52,36 @@ FORMAT: 1A
 
 ### Создать события [POST /api/v1/events]
 
++ Request (application/json)
+    + Attributes
+        + username (string, required)
+        + correctly (boolean, required)
+        + description (string, required)
+
++ Response 200 (application/json)
+    + Attributes
+        + One Of
+            + Properties
+                + status (enum, required)
+                    + ok
+
 ### Получить список событий [GET /api/v1/events]
 
++ Response 200 (application/json)
+    + Attributes
+        + One Of
+            + Properties
+                + status (enum, required)
+                    + ok
+                + files (array[number], required, fixed-type) - массив идентификаторов событий
+
 ### Получить событие [GET /api/v1/events/{id}]
+
++ Parameters
+    + id: `1` (string, required) - id события
+
++ Response 200 (application/json)
+    + Attributes
+        + username (string, required)
+        + correctly (boolean, required)
+        + description (string, required)
