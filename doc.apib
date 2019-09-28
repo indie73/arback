@@ -16,6 +16,11 @@ FORMAT: 1A
 + id (number, required)
 + description (string, required)
 
+## ControlPoints
++ id (number, required)
++ username (string, required)
++ time (number, required)
+
 # arback
 
 ## Файл [/api/v1/file]
@@ -125,4 +130,14 @@ FORMAT: 1A
             + ok
         + details (array[Detail], required, fixed-type) - массив деталей
         + steps (array[Step], required, fixed-type) - массив шагов
+
+## Контрольные точки [/control_points]
+
+### Получить контрольные точки [GET /api/v1/control_points]
+
++ Response 200 (application/json)
+    + Attributes
+        + status (enum, required)
+            + ok
+        + instructions (array[ControlPoints], required, fixed-type) - массив инструкцей
 
