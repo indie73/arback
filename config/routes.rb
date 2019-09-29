@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :instructions, only: %i[create index show]
-      resources :control_points, only: %i[index show]
+      resources :control_points, only: %i[index]
+      post 'control_points/:id', to: 'control_points#show'
     end
   end
 end

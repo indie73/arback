@@ -7,7 +7,7 @@ RSpec.describe API::V1::ControlPointsController, type: :controller do
 
   context 'GET /api/v1/control_points/ivanov' do
     it do
-      get :show, params: {id: 'ivanov'}, as: :json
+      post :show, params: {id: 'ivanov'}, as: :json
       expect(response.status).to eq(200)
     end
   end
