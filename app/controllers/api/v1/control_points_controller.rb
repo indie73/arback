@@ -12,7 +12,7 @@ module API
         end
         render status: :ok, json: {
           status: :ok,
-          control_points: control_points
+          control_points: control_points.reverse
         }
       end
     end
