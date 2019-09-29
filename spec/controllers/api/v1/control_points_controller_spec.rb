@@ -3,8 +3,16 @@
 require 'rails_helper'
 
 RSpec.describe API::V1::ControlPointsController, type: :controller do
+  let!(:instruction) { Instruction.create!(name: 'Инструкция по сбору X баннера') }
+
+  context 'GET /api/v1/control_points/i.ivanov' do
+    it do
+      get :show, params: {id: 'i.ivanov'}, as: :json
+      expect(response.status).to eq(200)
+    end
+  end
+
   context 'GET /api/v1/control_points' do
-    let!(:instruction) { Instruction.create!(name: 'Инструкция по сбору X баннера') }
     let!(:control_point) do
       ControlPoint.create!(
         username: 'i.ivanov',
