@@ -5,6 +5,28 @@ require 'rails_helper'
 RSpec.describe API::V1::InstructionsController, type: :controller do
   let!(:instruction) { Instruction.create!(name: 'Сборка X баннера') }
 
+  context 'POST /api/v1/control_points' do
+    it do
+      post :create, params: {
+        name: 'Инструкция по сбору X баннера',
+        details: [
+          {
+            count: 2,
+            name: 'Пластиковая ножка с держателем ролла',
+            shortName: 'A',
+            link: 'http://teamcenter.indieteam.ru/1.zip'
+          }
+        ],
+        steps: [
+          {
+            description: 'Взять деталь A'
+          }
+        ]
+      }, as: :json
+      expect(response.status).to eq(200)
+    end
+  end
+
   context 'GET /api/v1/instructions' do
     it do
       get :index, params: {}, as: :json

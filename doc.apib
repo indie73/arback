@@ -6,11 +6,20 @@ FORMAT: 1A
 + id (number, required)
 + name: Инструкция по сбору X баннера (string, required)
 
+## NewDetail (object)
++ count: 2 (number, required)
++ name: Пластиковая ножка с держателем ролла (string, required)
++ shortName: A (string, required)
++ link: http://teamcenter.indieteam.ru/1.zip (string, required)
+
 ## Detail (object)
 + id (number, required)
 + count: 2 (number, required)
 + name: Пластиковая ножка с держателем ролла (string, required)
 + shortName: A (string, required)
+
+## NewStep (object)
++ description: Взять деталь A (string, required)
 
 ## Step (object)
 + id (number, required)
@@ -25,6 +34,16 @@ FORMAT: 1A
 # ARIS
 
 ## Инструкции [/api/v1/instructions]
+
+### Создать инструкцию [POST /api/v1/instructions]
+
++ Request 200 (application/json)
+    + Attributes
+        + name: Инструкция по сбору X баннера (string, required)
+        + details (array[NewDetail], required, fixed-type)
+        + steps (array[NewStep], required, fixed-type)
+
++ Response 200 (application/json)
 
 ### Получить инструкции [GET /api/v1/instructions]
 

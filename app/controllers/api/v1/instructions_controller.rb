@@ -1,6 +1,27 @@
 module API
   module V1
     class InstructionsController < BaseController
+      def create
+        instruction = Instruction.create!(name: params['name'])
+        puts params['name']
+        params['details'].map do |detail|
+          puts detail
+          Kit.create!(
+            instruction: instruction,
+            detail: Detail.create!(
+              name: detail['count'],
+              short_name: detail['shortName'],
+              link: detail['link']
+            ),
+            quantity: detail['count']
+          )
+        end
+        params['steps'].map do |step|
+          Step.create!(description: step['description'], instruction: instruction)
+        end
+        render status: :ok
+      end
+
       def index
         instructions = Instruction.all.map do |instruction|
           {
