@@ -32,8 +32,8 @@ module API
         end
         render status: :ok, json: {
           status: :ok,
-          details: details,
-          steps: steps
+          details: details.reverse,
+          steps: steps.reverse
         }
       end
     end
